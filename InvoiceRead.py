@@ -6,7 +6,8 @@ def camera_read():
     ret, frame = cap.read()
     frame_grey = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     codings = decode(frame_grey)
-    cv2.imshow('Image', frame)
+    mirror_frame = cv2.flip(frame, 1)
+    cv2.imshow('Image', mirror_frame)
 
     for coding in codings:
         data = coding.data.decode("utf8")
